@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MUSA — Fire Performance & Movement Arts</title>
+  <title>MUSA — Show de Fuego en Costa Rica | Bodas, Eventos y Festivales</title>
+  <meta name="description" content="MUSA es la artista de fuego y movimiento para eventos que no se olvidan en Costa Rica. Shows de fuego para bodas, eventos corporativos, festivales y clubs nocturnos. Contrataciones: musacr.com">
+  <meta name="keywords" content="show de fuego Costa Rica, artista de fuego, fire performance Costa Rica, shows para bodas Costa Rica, entretenimiento eventos corporativos Costa Rica, fire show festivales, hula hoop fuego, artista fuego San José">
+  <meta property="og:title" content="MUSA — Show de Fuego en Costa Rica">
+  <meta property="og:description" content="Artista de fuego y movimiento para eventos que no se olvidan. Bodas, eventos corporativos, festivales y clubs nocturnos en Costa Rica.">
+  <meta property="og:image" content="https://musacr.com/foto1.jpg">
+  <meta property="og:url" content="https://musacr.com">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://musacr.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
@@ -495,7 +504,112 @@
     }
     .gallery-cta a:hover { opacity: 1; }
 
-    /* ─── CONTACT ─── */
+    /* ─── ACCORDION SERVICES ─── */
+    .accordion-services { padding: 0 2rem; }
+
+    .acc-item {
+      border-bottom: 1px solid rgba(184,134,11,0.2);
+      margin-bottom: 0;
+    }
+    .acc-item:first-child { border-top: 1px solid rgba(184,134,11,0.2); }
+
+    .acc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .acc-header:hover { opacity: 0.8; }
+
+    .acc-header-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .acc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      color: var(--gold);
+      opacity: 0.5;
+      letter-spacing: 0.2em;
+    }
+
+    .acc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+
+    .acc-icon {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      transition: transform 0.4s ease;
+      line-height: 1;
+      min-width: 24px;
+      text-align: center;
+    }
+    .acc-item.open .acc-icon { transform: rotate(45deg); }
+
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease;
+    }
+    .acc-item.open .acc-body { max-height: 600px; }
+
+    .acc-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      align-items: start;
+    }
+
+    .acc-text p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: rgba(245,240,232,0.75);
+      margin-bottom: 1.5rem;
+    }
+
+    .acc-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .acc-features li {
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      color: rgba(245,240,232,0.6);
+    }
+
+    .acc-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .acc-photos img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.5s ease;
+    }
+    .acc-photos img:hover { transform: scale(1.03); }
+
+    @media (max-width: 700px) {
+      .acc-content { grid-template-columns: 1fr; }
+      .acc-photos { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ─── ACCORDION SERVICES ─── */
     #contact {
       background:
         radial-gradient(ellipse 100% 80% at 50% 100%, rgba(220,20,60,0.1), transparent 70%),
@@ -575,6 +689,87 @@
       section { padding: 5rem 1.2rem; }
       .about-stats { grid-template-columns: 1fr 1fr; }
     }
+    /* ─── CURSOR MÍSTICO ─── */
+    * { cursor: none; }
+    #musa-cursor {
+      position: fixed;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #FF8C00;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, width 0.3s, height 0.3s, opacity 0.3s;
+      box-shadow: 0 0 12px 3px rgba(255,140,0,0.5);
+      mix-blend-mode: screen;
+    }
+    #musa-cursor-ring {
+      position: fixed;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,140,0,0.4);
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.12s ease-out, width 0.3s, height 0.3s;
+    }
+    @media (hover: none) {
+      #musa-cursor, #musa-cursor-ring { display: none; }
+      * { cursor: auto; }
+    }
+
+    /* ─── BOTÓN FUEGO LÍQUIDO ─── */
+    .btn-gold {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-gold::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 2px;
+      background: transparent;
+      box-shadow:
+        0 0 8px 1px rgba(255,140,0,0.3),
+        0 0 20px 2px rgba(220,20,60,0.15);
+      animation: fire-pulse 2.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes fire-pulse {
+      0%, 100% {
+        box-shadow:
+          0 0 8px 1px rgba(255,140,0,0.3),
+          0 0 20px 2px rgba(220,20,60,0.15);
+      }
+      50% {
+        box-shadow:
+          0 0 16px 4px rgba(255,140,0,0.5),
+          0 0 35px 6px rgba(220,20,60,0.25);
+      }
+    }
+    .btn-gold:hover::after {
+      box-shadow:
+        0 0 25px 6px rgba(255,140,0,0.7),
+        0 0 50px 12px rgba(220,20,60,0.35);
+      animation: none;
+    }
+
+    /* ─── TEXTO QUE SE ENCIENDE ─── */
+    .word-reveal span.word {
+      display: inline-block;
+      opacity: 0.12;
+      color: var(--white);
+      transition: none;
+    }
+
+    /* ─── SERVICIOS HOVER FUEGO ─── */
+    .acc-item {
+      transition: background 0.6s ease;
+    }
+    .acc-item:hover {
+      background: rgba(28, 11, 0, 0.6);
+    }
+
   </style>
 </head>
 <body>
@@ -618,13 +813,13 @@
     <div class="hero-particles" id="particles"></div>
 
     <div class="hero-content">
-      <p class="hero-tag">FIRE PERFORMANCE &amp; MOVEMENT ARTS</p>
+      <p class="hero-tag">FIRE PERFORMANCE &amp; MOVEMENT ARTS · COSTA RICA</p>
       <h1 class="hero-title">
-        <span data-es="MUSA: La hipnosis del fuego<br>y el <em>arte</em> del movimiento" data-en="MUSA: The hypnosis of fire<br>and the <em>art</em> of movement">
-          MUSA: La hipnosis del fuego<br>y el <em>arte</em> del movimiento
+        <span data-es="Artista de fuego y movimiento<br>para eventos que <em>no se olvidan</em>" data-en="Fire & movement artist<br>for events that <em>leave a mark</em>">
+          Artista de fuego y movimiento<br>para eventos que <em>no se olvidan</em>
         </span>
       </h1>
-      <p class="hero-sub" data-es="Costa Rica" data-en="Costa Rica">Costa Rica</p>
+      <p class="hero-sub" data-es="Amplia experiencia en bodas, eventos corporativos, clubs y festivales" data-en="Extensive experience in weddings, corporate events, clubs and festivals">Amplia experiencia en bodas, eventos corporativos, clubs y festivales</p>
       <a href="https://wa.me/50662873078?text=Hola%20MUSA%2C%20quiero%20reservar%20mi%20fecha" target="_blank" rel="noopener noreferrer" class="btn-gold">
         <span data-es="Reservar mi fecha" data-en="Book My Date">Reservar mi fecha</span>
       </a>
@@ -642,20 +837,16 @@
         <p class="section-label" data-es="SOBRE MUSA" data-en="ABOUT MUSA">SOBRE MUSA</p>
         <h2 class="section-title" data-es="Donde el fuego<br>se convierte en arte" data-en="Where fire<br>becomes art">Donde el fuego<br>se convierte en arte</h2>
         <div class="gold-rule"></div>
-        <p data-es="MUSA transforma espacios a través de la danza, el fuego y la manipulación de elementos, creando una experiencia hipnótica y sensorial que cautiva cada sentido." data-en="MUSA transforms spaces through dance, fire, and element manipulation, creating a hypnotic and sensory experience that captivates every sense.">
-          MUSA transforma espacios a través de la danza, el fuego y la manipulación de elementos, creando una experiencia hipnótica y sensorial que cautiva cada sentido.
+        <p id="about-p1" data-es="MUSA transforma espacios a través del movimiento, el fuego y la manipulación de elementos, creando una experiencia hipnótica y sensorial que cautiva cada sentido." data-en="MUSA transforms spaces through movement, fire, and element manipulation, creating a hypnotic and sensory experience that captivates every sense.">
+          MUSA transforma espacios a través del movimiento, el fuego y la manipulación de elementos, creando una experiencia hipnótica y sensorial que cautiva cada sentido.
         </p>
-        <p data-es="Con amplia trayectoria en bodas y eventos corporativos, fusionamos el misticismo ancestral del fuego con la elegancia contemporánea del movimiento, elevando cada evento a una dimensión extraordinaria." data-en="With extensive experience in weddings and corporate events, we fuse the ancestral mysticism of fire with the contemporary elegance of movement, elevating every event to an extraordinary dimension.">
-          Con amplia trayectoria en bodas y eventos corporativos, fusionamos el misticismo ancestral del fuego con la elegancia contemporánea del movimiento, elevando cada evento a una dimensión extraordinaria.
+        <p id="about-p2" data-es="Fusionamos el misticismo ancestral del fuego con la elegancia contemporánea de la danza, elevando cada evento a una dimensión extraordinaria." data-en="We fuse the ancestral mysticism of fire with the contemporary elegance of dance, elevating every event to an extraordinary dimension.">
+          Fusionamos el misticismo ancestral del fuego con la elegancia contemporánea de la danza, elevando cada evento a una dimensión extraordinaria.
         </p>
         <p class="artist-name">Kelsey Arias</p>
         <div class="about-stats">
           <div class="stat">
-            <div class="stat-num">3+</div>
-            <div class="stat-label" data-es="Años de experiencia" data-en="Years of experience">Años de experiencia</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">CR</div>
+            <div class="stat-num" style="font-size:1.4rem;line-height:1.3;">Todo</div>
             <div class="stat-label" data-es="Costa Rica" data-en="Costa Rica">Costa Rica</div>
           </div>
         </div>
@@ -675,78 +866,75 @@
       <h2 class="section-title" data-es="Experiencias que Encienden" data-en="Experiences that Ignite">Experiencias que Encienden</h2>
       <div class="gold-rule"></div>
     </div>
-    <div class="services-grid">
 
-      <div class="service-card">
-        <div class="service-card-bg s1-bg"></div>
-        <div class="service-accent s1-accent"></div>
-        <div class="service-info">
-          <div class="service-num">01</div>
-          <div class="service-divider"></div>
-          <h3 class="service-name" data-es="Shows de Fuego" data-en="Fire Shows">Shows de Fuego</h3>
-          <p class="service-desc" data-es="Espectáculos que desafían los límites, diseñados para hipnotizar y transformar cualquier evento en un ritual de fuego inolvidable." data-en="Performances that push the limits, designed to hypnotize and transform any event into an unforgettable fire ritual.">
-            Espectáculos que desafían los límites, diseñados para hipnotizar y transformar cualquier evento en un ritual de fuego inolvidable.
-          </p>
+    <div class="accordion-services" style="max-width:900px;margin:0 auto;">
+
+      <!-- SERVICIO 1: SHOW DE FUEGO -->
+      <div class="acc-item" id="acc1">
+        <div class="acc-header" onclick="toggleAcc('acc1')">
+          <div class="acc-header-left">
+            <span class="acc-num">01</span>
+            <h3 class="acc-title" data-es="Performance de Fuego" data-en="Fire Performance">Performance de Fuego</h3>
+          </div>
+          <div class="acc-icon">+</div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-content">
+            <div class="acc-text">
+              <p data-es="Un espectáculo que se adapta completamente a tu evento. El show tiene una duración de 20 minutos que pueden utilizarse de forma continua o divididos en intervenciones de 5 minutos con diferentes props — creando momentos de impacto a lo largo de la noche." data-en="A show that adapts completely to your event. The performance runs 20 minutes, which can be delivered continuously or split into 5-minute sets with different props — creating impact moments throughout the night.">
+                Un espectáculo que se adapta completamente a tu evento. El show tiene una duración de 20 minutos que pueden utilizarse de forma continua o divididos en intervenciones de 5 minutos con diferentes props — creando momentos de impacto a lo largo de la noche.
+              </p>
+              <ul class="acc-features">
+                <li data-es="✦ Adaptable a música en vivo" data-en="✦ Adaptable to live music">✦ Adaptable a música en vivo</li>
+                <li data-es="✦ Opción de incorporar más artistas" data-en="✦ Option to add more artists">✦ Opción de incorporar más artistas</li>
+                <li data-es="✦ Nos movemos a todo Costa Rica" data-en="✦ Available throughout Costa Rica">✦ Nos movemos a todo Costa Rica</li>
+                <li data-es="✦ Precio según locación y requerimientos" data-en="✦ Price according to location and requirements">✦ Precio según locación y requerimientos</li>
+              </ul>
+              <a href="https://wa.me/50662873078?text=Hola%20MUSA%2C%20quiero%20cotizar%20un%20Performance%20de%20Fuego" target="_blank" rel="noopener noreferrer" class="btn-gold" style="margin-top:2rem;display:inline-block;">
+                <span data-es="Cotizar Performance de Fuego" data-en="Get a Quote">Cotizar Performance de Fuego</span>
+              </a>
+            </div>
+            <div class="acc-photos">
+              <img src="foto1.jpg" alt="Show de Fuego MUSA">
+              <img src="foto3.jpg" alt="Show de Fuego MUSA">
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="service-card">
-        <div class="service-card-bg s2-bg"></div>
-        <div class="service-accent s2-accent"></div>
-        <div class="service-info">
-          <div class="service-num">02</div>
-          <div class="service-divider"></div>
-          <h3 class="service-name" data-es="Performance LED y Seda" data-en="LED & Silk Performance">Performance LED y Seda</h3>
-          <p class="service-desc" data-es="Una fusión de tecnología luminosa y telas etéreas que crean paisajes visuales oníricos, perfectos para eventos elegantes e íntimos." data-en="A fusion of luminous technology and ethereal fabrics that create dreamlike visual landscapes, perfect for elegant and intimate events.">
-            Una fusión de tecnología luminosa y telas etéreas que crean paisajes visuales oníricos, perfectos para eventos elegantes e íntimos.
-          </p>
+      <!-- SERVICIO 2: PERFORMANCE LED Y SEDA -->
+      <div class="acc-item" id="acc2">
+        <div class="acc-header" onclick="toggleAcc('acc2')">
+          <div class="acc-header-left">
+            <span class="acc-num">02</span>
+            <h3 class="acc-title" data-es="Performance LED y Seda" data-en="LED & Silk Performance">Performance LED y Seda</h3>
+          </div>
+          <div class="acc-icon">+</div>
+        </div>
+        <div class="acc-body">
+          <div class="acc-content">
+            <div class="acc-text">
+              <p data-es="Una fusión de tecnología luminosa y telas etéreas que crea paisajes visuales oníricos. Perfecto para eventos elegantes donde el fuego no es una opción — bodas en interiores, galas corporativas o activaciones de marca." data-en="A fusion of luminous technology and ethereal fabrics creating dreamlike visual landscapes. Perfect for elegant events where fire is not an option — indoor weddings, corporate galas, or brand activations.">
+                Una fusión de tecnología luminosa y telas etéreas que crea paisajes visuales oníricos. Perfecto para eventos elegantes donde el fuego no es una opción — bodas en interiores, galas corporativas o activaciones de marca.
+              </p>
+              <ul class="acc-features">
+                <li data-es="✦ Ideal para espacios cerrados" data-en="✦ Ideal for indoor venues">✦ Ideal para espacios cerrados</li>
+                <li data-es="✦ Sin restricciones de seguridad por fuego" data-en="✦ No fire safety restrictions">✦ Sin restricciones de seguridad por fuego</li>
+                <li data-es="✦ Adaptable a la estética del evento" data-en="✦ Adaptable to event aesthetics">✦ Adaptable a la estética del evento</li>
+                <li data-es="✦ Precio según locación y requerimientos" data-en="✦ Price according to location and requirements">✦ Precio según locación y requerimientos</li>
+              </ul>
+              <a href="https://wa.me/50662873078?text=Hola%20MUSA%2C%20quiero%20cotizar%20un%20Performance%20LED%20y%20Seda" target="_blank" rel="noopener noreferrer" class="btn-gold" style="margin-top:2rem;display:inline-block;">
+                <span data-es="Cotizar Performance LED" data-en="Get a Quote">Cotizar Performance LED</span>
+              </a>
+            </div>
+            <div class="acc-photos">
+              <img src="foto2.jpg" alt="Performance LED MUSA">
+              <img src="foto4.jpg" alt="Performance Seda MUSA">
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="service-card">
-        <div class="service-card-bg s3-bg"></div>
-        <div class="service-accent s3-accent"></div>
-        <div class="service-info">
-          <div class="service-num">03</div>
-          <div class="service-divider"></div>
-          <h3 class="service-name" data-es="Workshops de Movimiento" data-en="Movement Workshops">Workshops de Movimiento</h3>
-          <p class="service-desc" data-es="Talleres inmersivos donde el cuerpo descubre su propio lenguaje a través del flow arts, la danza contemporánea y la conexión con los elementos." data-en="Immersive workshops where the body discovers its own language through flow arts, contemporary dance, and connection with the elements.">
-            Talleres inmersivos donde el cuerpo descubre su propio lenguaje a través del flow arts, la danza contemporánea y la conexión con los elementos.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery" style="padding:5rem 0;background:#000;">
-    <div class="gallery-header">
-      <p class="section-label" data-es="GALERÍA" data-en="GALLERY">GALERÍA</p>
-      <h2 class="section-title" data-es="El Fuego en Acción" data-en="Fire in Action">El Fuego en Acción</h2>
-      <div class="gold-rule" style="margin:1.5rem auto;"></div>
-    </div>
-    <div class="photo-grid">
-      <div class="photo-slot big">
-        <img src="foto1.jpg" alt="MUSA fire performance" onclick="openLightbox(this.src)">
-      </div>
-      <div class="photo-slot">
-        <img src="foto2.jpg" alt="MUSA fuego" onclick="openLightbox(this.src)">
-      </div>
-      <div class="photo-slot">
-        <img src="foto3.jpg" alt="MUSA show" onclick="openLightbox(this.src)">
-      </div>
-      <div class="photo-slot">
-        <img src="foto4.jpg" alt="MUSA performance" onclick="openLightbox(this.src)">
-      </div>
-      <div class="photo-slot">
-        <img src="foto5.jpg" alt="MUSA evento" onclick="openLightbox(this.src)">
-      </div>
-    </div>
-    <div class="gallery-cta">
-      <a href="https://www.instagram.com/musa_cr__/" target="_blank" rel="noopener noreferrer">
-        <span data-es="VER MÁS EN @musa_cr__" data-en="SEE MORE AT @musa_cr__">VER MÁS EN @musa_cr__</span> →
-      </a>
     </div>
   </section>
 
@@ -795,6 +983,10 @@
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
+  <!-- GSAP CDN — debe cargarse antes del script principal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <script>
     // ─── EMBERS
     const container = document.getElementById('particles');
@@ -817,6 +1009,110 @@
       `;
       container.appendChild(e);
     }
+
+    // ─── ACCORDION CON GSAP + STAGGER
+    let activeAcc = null;
+    let activeTimeline = null;
+
+    function toggleAcc(id) {
+      const item = document.getElementById(id);
+      const isOpen = item.classList.contains('open');
+
+      // Cerrar el que está abierto primero
+      if (activeAcc && activeAcc !== item) {
+        closeAcc(activeAcc);
+      }
+
+      if (isOpen) {
+        closeAcc(item);
+      } else {
+        openAcc(item);
+      }
+    }
+
+    function openAcc(item) {
+      const body   = item.querySelector('.acc-body');
+      const p      = item.querySelector('.acc-text p');
+      const lis    = item.querySelectorAll('.acc-features li');
+      const btn    = item.querySelector('.acc-text .btn-gold');
+      const photos = item.querySelectorAll('.acc-photos img');
+
+      item.classList.add('open');
+      activeAcc = item;
+
+      // Medir altura real del contenido
+      body.style.maxHeight = 'none';
+      const fullH = body.scrollHeight + 'px';
+      body.style.maxHeight = '0px';
+
+      // Timeline GSAP
+      const tl = gsap.timeline();
+      activeTimeline = tl;
+
+      // 1. Expandir el contenedor elásticamente
+      tl.to(body, {
+        maxHeight: fullH,
+        duration: 0.6,
+        ease: 'power3.out'
+      });
+
+      // 2. Stagger interno — párrafo, viñetas, botón, fotos
+      tl.fromTo(p,
+        { autoAlpha: 0, y: 20 },
+        { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+        '-=0.3'
+      );
+      tl.fromTo(lis,
+        { autoAlpha: 0, y: 15 },
+        { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.08, ease: 'power2.out' },
+        '-=0.2'
+      );
+      tl.fromTo(btn,
+        { autoAlpha: 0, y: 10 },
+        { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+        '-=0.1'
+      );
+      tl.fromTo(photos,
+        { autoAlpha: 0, scale: 0.95, y: 15 },
+        { autoAlpha: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out' },
+        '-=0.3'
+      );
+    }
+
+    function closeAcc(item) {
+      const body   = item.querySelector('.acc-body');
+      const p      = item.querySelector('.acc-text p');
+      const lis    = item.querySelectorAll('.acc-features li');
+      const btn    = item.querySelector('.acc-text .btn-gold');
+      const photos = item.querySelectorAll('.acc-photos img');
+
+      const tl = gsap.timeline({
+        onComplete: () => {
+          item.classList.remove('open');
+          body.style.maxHeight = '0px';
+        }
+      });
+
+      // Revertir en orden inverso
+      tl.to([...photos].reverse(), { autoAlpha: 0, y: 10, duration: 0.25, stagger: 0.06, ease: 'power2.in' });
+      tl.to(btn,  { autoAlpha: 0, y: 8,  duration: 0.2, ease: 'power2.in' }, '-=0.1');
+      tl.to(lis,  { autoAlpha: 0, y: 8,  duration: 0.2, stagger: 0.04, ease: 'power2.in' }, '-=0.1');
+      tl.to(p,    { autoAlpha: 0, y: 8,  duration: 0.2, ease: 'power2.in' }, '-=0.1');
+      tl.to(body, { maxHeight: 0, duration: 0.4, ease: 'power3.in' }, '-=0.1');
+
+      activeAcc = null;
+    }
+
+    // Efecto fondo naranja en hover de fila
+    document.querySelectorAll('.acc-header').forEach(header => {
+      const item = header.closest('.acc-item');
+      header.addEventListener('mouseenter', () => {
+        gsap.to(item, { backgroundColor: 'rgba(28,11,0,0.7)', duration: 0.4, ease: 'power2.out' });
+      });
+      header.addEventListener('mouseleave', () => {
+        gsap.to(item, { backgroundColor: 'transparent', duration: 0.5, ease: 'power2.out' });
+      });
+    });
 
     // ─── LANGUAGE
     let currentLang = 'es';
@@ -901,5 +1197,103 @@
   <style>
     #lightbox { display:none; }
     #lightbox.open { display:flex; }
-    .photo-slot img { cursor:pointer; }
+    .photo-slot img { cursor:none; }
   </style>
+
+  <!-- LLAMA FLOTANTE -->
+  <svg id="musa-flame" viewBox="0 0 24 24" fill="#B8860B" xmlns="http://www.w3.org/2000/svg"
+    style="position:fixed;width:20px;height:20px;pointer-events:none;z-index:9997;
+           top:0;left:0;opacity:0;transition:opacity 0.3s;transform:translate(-50%,-130%)">
+    <path d="M12 2C12 2 7 8 7 13a5 5 0 0 0 10 0c0-2.5-1.5-5-2-6.5C14.5 8 14 10 12 10c0 0 2-4 0-8z"/>
+  </svg>
+
+  <!-- CURSOR -->
+  <div id="musa-cursor"></div>
+  <div id="musa-cursor-ring"></div>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ─── CURSOR MÍSTICO
+    const cursor = document.getElementById('musa-cursor');
+    const ring   = document.getElementById('musa-cursor-ring');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top  = mouseY + 'px';
+    });
+    (function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    })();
+
+    // ─── LLAMA FLOTANTE EN SECCIÓN SERVICIOS
+    const flame = document.getElementById('musa-flame');
+    const servSec = document.getElementById('services');
+    if (servSec && flame) {
+      servSec.addEventListener('mouseenter', () => flame.style.opacity = '1');
+      servSec.addEventListener('mouseleave', () => flame.style.opacity = '0');
+      document.addEventListener('mousemove', (e) => {
+        flame.style.left = e.clientX + 'px';
+        flame.style.top  = e.clientY + 'px';
+      });
+    }
+
+    document.querySelectorAll('a, button, .acc-header').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.width = cursor.style.height = '18px'; ring.style.width = ring.style.height = '50px'; });
+      el.addEventListener('mouseleave', () => { cursor.style.width = cursor.style.height = '10px'; ring.style.width = ring.style.height = '32px'; });
+    });
+
+    // ─── TEXTO QUE SE ENCIENDE
+    function splitWords(el) {
+      const words = el.innerText.trim().split(/\s+/);
+      el.innerHTML = words.map(w => `<span class="word">${w}</span>`).join(' ');
+      return el.querySelectorAll('.word');
+    }
+
+    window.addEventListener('load', () => {
+      ['about-p1', 'about-p2'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const words = splitWords(el);
+        gsap.fromTo(words,
+          { opacity: 0.1, color: '#333' },
+          { opacity: 1, color: 'rgba(245,240,232,0.85)', stagger: 0.05, ease: 'none',
+            scrollTrigger: { trigger: el, start: 'top 85%', end: 'bottom 50%', scrub: 1.5 }
+          }
+        );
+      });
+
+      // ─── HERO
+      gsap.from('.hero-tag',       { autoAlpha: 0, y: 25, duration: 1,   delay: 0.4, ease: 'power3.out' });
+      gsap.from('.hero-title',     { autoAlpha: 0, y: 45, duration: 1.3, delay: 0.7, ease: 'power3.out' });
+      gsap.from('.hero-sub',       { autoAlpha: 0, y: 20, duration: 1,   delay: 1.1, ease: 'power3.out' });
+      gsap.from('#hero .btn-gold', { autoAlpha: 0, y: 20, duration: 1,   delay: 1.4, ease: 'power3.out' });
+
+      // ─── ABOUT
+      gsap.from('.about-photo',        { autoAlpha: 0, x: 50,  duration: 1.3, ease: 'power3.out', scrollTrigger: { trigger: '#about', start: 'top 70%', once: true } });
+      gsap.from('#about .section-label', { autoAlpha: 0, y: 20, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: '#about', start: 'top 70%', once: true } });
+      gsap.from('#about .section-title', { autoAlpha: 0, y: 30, duration: 0.9, delay: 0.1, ease: 'power2.out', scrollTrigger: { trigger: '#about', start: 'top 70%', once: true } });
+      gsap.from('.gold-rule',           { scaleX: 0, duration: 0.8, delay: 0.2, ease: 'power2.out', transformOrigin: 'left', scrollTrigger: { trigger: '#about', start: 'top 70%', once: true } });
+      gsap.from('.artist-name',         { autoAlpha: 0, y: 15, duration: 0.7, delay: 0.3, ease: 'power2.out', scrollTrigger: { trigger: '#about', start: 'top 70%', once: true } });
+      gsap.from('.about-stats',         { autoAlpha: 0, y: 15, duration: 0.7, delay: 0.4, ease: 'power2.out', scrollTrigger: { trigger: '#about', start: 'top 70%', once: true } });
+
+      // ─── SERVICIOS
+      gsap.from('#services .services-header', { autoAlpha: 0, y: 30, duration: 0.9, ease: 'power2.out', scrollTrigger: { trigger: '#services', start: 'top 80%', once: true } });
+      gsap.from('.acc-item', { autoAlpha: 0, y: 35, duration: 0.8, stagger: 0.2, ease: 'power2.out', scrollTrigger: { trigger: '.accordion-services', start: 'top 80%', once: true } });
+
+      // ─── CONTACTO
+      gsap.from('#contact .section-label, #contact .section-title, #contact .gold-rule, #contact .contact-sub, #contact .btn-gold, #contact .contact-links', {
+        autoAlpha: 0, y: 30, duration: 0.8, stagger: 0.12, ease: 'power2.out',
+        scrollTrigger: { trigger: '#contact', start: 'top 80%', once: true }
+      });
+    });
+  </script>
+
+</body>
+</html>
